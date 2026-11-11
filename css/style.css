@@ -1,0 +1,84 @@
+
+:root {
+  /* Брендова колірна палітра */
+  --color-brand-primary: #4A0E4E;
+  --color-brand-secondary: #8B263E;
+  --color-brand-accent: #FF6B35;
+  --color-brand-accent-hover: #E55A2B;
+  --color-brand-base: #FAF6F0;
+  --color-brand-border: #E8DEC8;
+  --color-brand-dark: #2A082E;
+  --color-brand-text: #1E121F;
+  --color-brand-muted: #635266;
+
+  /* Уніфіковані параметри геометричних закруглень та тіней */
+  --media-border-radius: 1rem; /* 16px — гармонізовано з rounded-2xl */
+  --shadow-sm-brand: 0 1px 3px 0 rgba(74, 14, 78, 0.08), 0 1px 2px -1px rgba(74, 14, 78, 0.04);
+  --shadow-md-brand: 0 4px 6px -1px rgba(74, 14, 78, 0.12), 0 2px 4px -2px rgba(74, 14, 78, 0.06);
+
+  /* Змінні адаптивного YouTube-плеєра */
+  --video-max-width: 860px;
+  
+  /* Змінні інтерактивної Google Карти */
+  --map-max-width: 100%;
+  --map-height-mobile: 320px;
+  --map-height-desktop: 420px;
+  --map-spacing-top: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   Універсальний DRY-клас контейнерів медичних фреймів (.media-frame)
+   -------------------------------------------------------------------------- */
+.media-frame {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--media-border-radius);
+  border: 1px solid var(--color-brand-border);
+  background-color: var(--color-brand-dark);
+  box-shadow: var(--shadow-sm-brand);
+  transition: box-shadow 0.3s ease;
+}
+
+.media-frame:hover {
+  box-shadow: var(--shadow-md-brand);
+}
+
+/* --------------------------------------------------------------------------
+   Специфікація YouTube-плеєра (Aspect Ratio 16:9)
+   -------------------------------------------------------------------------- */
+.video-wrapper {
+  max-width: var(--video-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video-iframe {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Специфікація інтерактивної Google Карти
+   -------------------------------------------------------------------------- */
+.map-wrapper {
+  max-width: var(--map-max-width);
+  margin-top: var(--map-spacing-top);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.map-iframe {
+  width: 100%;
+  height: var(--map-height-mobile);
+  display: block;
+  border: 0;
+}
+
+@media (min-width: 768px) {
+  .map-iframe {
+    height: var(--map-height-desktop);
+  }
+}
